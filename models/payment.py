@@ -9,11 +9,20 @@ class Payment(db.Model):
     qr_Code = db.Column(db.String(100), nullable=True)
     expiration_date = db.Column(db.DateTime)
 
-    def __init__(self, id, value, paid, bank_payment_id, qr_code, expiration_date) -> None:
+    def __init__(self, id=None, value=None, paid=False, bank_payment_id=None, qr_code=None, expiration_date=None) -> None:
         self.id = id
         self.value = value
         self.paid = paid
         self.bank_paymetn_id = bank_payment_id
         self.qr_Code = qr_code
         self.expiration_date = expiration_date
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "value": self.value,
+            "paid": self.paid,
+            "bank_payment_id": self.bank_paymetn_id,
+            "qr_code": self.qr_Code,
+            "expiration_date": self.expiration_date
+        }
 
