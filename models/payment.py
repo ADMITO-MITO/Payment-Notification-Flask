@@ -2,10 +2,10 @@
 from repository.database import db
 
 class Payment(db.Model):
-    id = db.Column(db.Interger, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     value = db.Column(db.Float)
     paid = db.Column(db.Boolean, default=False)
-    bank_paymetn_id = db.Column(db.Interger, nullable=True)
+    bank_paymetn_id = db.Column(db.Integer, nullable=True)
     qr_Code = db.Column(db.String(100), nullable=True)
     expiration_date = db.Column(db.DateTime)
 
